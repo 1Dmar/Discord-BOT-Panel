@@ -1,0 +1,32 @@
+{
+  "name": "bot-panel",
+  "version": "1.0.0",
+  "description": "Use your bot as a discord account.",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iGameCreep/bot-panel.git"
+  },
+  "author": "iGameCreep - GameCreep35#1564",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iGameCreep/bot-panel/issues"
+  },
+  "homepage": "https://github.com/iGameCreep/bot-panel#readme",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "dateformat": "^4.5.1",
+    "discord.js": "^14.1.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-session": "^1.17.2",
+    "passport": "^0.6.0",
+    "passport-discord": "^0.1.4",
+    "request": "^2.88.2",
+    "socket.io": "^4.2.0"
+  }
+}
