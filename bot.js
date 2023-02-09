@@ -13,4 +13,6 @@ global.client = new Client({
 
 client.config = require('./config');
 
-client.login(client.config.token)
+client.login(client.config.token).then(console.log("SUCCESS"))
+
+exports.client = client
