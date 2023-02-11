@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> Guilds | <%=client.user.username%> </title>
+    <title> Add the bot - <%= guild.name %> | <%=client.user.username%> </title>
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
@@ -51,20 +51,11 @@
           <div class="aside-menu overflow-hidden">
             <nav id="stacked-menu" class="stacked-menu">
               <ul class="menu">
-                <li class="menu-item">
+                <li class="menu-item has-active">
                   <a href="/" class="menu-link"><span class="menu-icon fas fa-home"></span> <span class="menu-text">Dashboard</span></a>
                 </li>
                 <li class="menu-item">
-                  <a href="/plugins" class="menu-link"><span class="menu-icon fas fa-rocket"></span> <span class="menu-text">Plugins</span></a>
-                </li>
-                <li class="menu-item has-active">
                   <a href="/guilds" class="menu-link"><span class="menu-icon fas fa-server"></span> <span class="menu-text">Guilds</span></a>
-                </li>
-                <li class="menu-item">
-                    <a href="/support" class="menu-link"><span class="menu-icon fas fa-question-circle"></span> <span class="menu-text">Support</span></a>
-                </li>
-                <li class="menu-item">
-                    <a href="/settings" class="menu-link"><span class="menu-icon fas fa-cog"></span> <span class="menu-text">Settings</span></a>
                 </li>
               </ul>
             </nav>
@@ -78,56 +69,59 @@
               <div class="page-section">
                   <div class="section-block">
                     <% if(success != ''){ %>
-                        <div class="alert alert-success has-icon alert-dismissible fade show">
-                          <button type="button" class="close" data-dismiss="alert">×</button>
-                          <div class="alert-icon">
-                            <span class="oi oi-flag"></span>
-                          </div>
-                          <h4 class="alert-heading"> Success! </h4>
-                          <p class="mb-0"><%=success%></p>
-                        </div>
-                    <% } %> 
-                    <% if(error != ''){ %>
-                      <div class="alert alert-warning has-icon alert-dismissible fade show">
+                      <div class="alert alert-success has-icon alert-dismissible fade show">
                         <button type="button" class="close" data-dismiss="alert">×</button>
                         <div class="alert-icon">
-                          <span class="fa fa-bullhorn"></span>
+                          <span class="oi oi-flag"></span>
                         </div>
-                        <h4 class="alert-heading"> Warning! </h4>
-                        <p class="mb-0"><%=error%></p>
+                        <h4 class="alert-heading"> Success! </h4>
+                        <p class="mb-0"><%=success%></p>
                       </div>
-                    <% } %> 
-                    <h4>Guilds</h4>
-                    <p class="text-muted"> See all the Guilds (Servers) that your BOT is in, returns information about each guild and the option to leave!</p>
-                    <div class="row">
-                        <% guilds.each(function(guild) { %>
-                        <div class="col-lg-4">
-                          <div class="card">
-                            <% if (guild.iconURL()) { %>
-                              <div class="card-header"><figure class="user-avatar user-avatar-lg"><img src="<%= guild.iconURL() %>" alt=""></figure> <%= guild.name %></div>
-                            <% } else { %>
-                              <div class="card-header"><figure class="user-avatar user-avatar-lg"><img src="https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949" alt=""></figure> <%= guild.name %></div>
-                            <% } %>
-                            <div class="card-body">
-                              <p class="card-text"><strong>Member Count:</strong> <%= number.formatNumber(guild.memberCount) %> </p>
-                              <p class="card-text"><strong>Server ID:</strong> <%= guild.id %> </p>
-                              <p class="card-text"><strong>Region:</strong> <%= guild.preferredLocale %> </p>
-                              <p class="card-text"><strong>Created:</strong> <%= dateformat(`${guild.createdAt}`, 'dddd, mmmm dS, yyyy, h:MM TT') %> </p>
-                              <p class="card-text"><strong>Joined:</strong> <%= dateformat(`${guild.joinedAt}`, 'dddd, mmmm dS, yyyy, h:MM TT') %> </p>
-
-                            </div>
-                              <div class="card-footer-item">
-                                <form action="/guild" method="get">
-                                  <input type="text" name="guildid" value="<%= guild.id %>" hidden>
-                                  <input type="submit" class="btn btn-primary" value="Select Guild">
-                                </form>
-                              </div>
-                          </div>
-                        </div>
-                        <% }); %>
+                  <% } %> 
+                  <% if(error != ''){ %>
+                    <div class="alert alert-warning has-icon alert-dismissible fade show">
+                      <button type="button" class="close" data-dismiss="alert">×</button>
+                      <div class="alert-icon">
+                        <span class="fa fa-bullhorn"></span>
+                      </div>
+                      <h4 class="alert-heading"> Warning! </h4>
+                      <p class="mb-0"><%=error%></p>
                     </div>
-                </div>
+                <% } %> 
+                <h4>Add the bot !</h4>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="card">
+                      <% if (guild.icon) { %>
+                        <div class="card-header"><figure class="user-avatar user-avatar-lg"><img src="https://cdn.discordapp.com/icons/<%=guild.id %>/<%=guild.icon %>.png" alt=""></figure> <%=guild.name%></div>
+                      <% } else { %>
+                          <div class="card-header"><figure class="user-avatar user-avatar-lg"><img src="https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949" alt=""></figure> <%=guild.name%></div>
+                      <% } %>
+                      <div class="card-body">
+                        <p class="card-text"><strong>Server ID:</strong> <%=guild.id %> </p>
+                        <p class="card-text"><strong>Owner:</strong> <%= guild.owner %></p>
+                        <% if (guild.permissions_new & 0x00000020) { %>
+                          <p class="card-text"><strong>Can Invite The Bot:</strong> Yes !</p>
+                        <% } else { %>
+                          <p class="card-text"><strong>Can Invite The Bot:</strong> No.</p>
+                          <p class="text-muted">Please ask to a higher rank to give you the permission Manage_Guild. Without it, you can't invite the bot !</p>
+                        <% } %>
+                      </div>
+                      <div class="card-footer-item">
+                        <% if (guild.permissions_new & 0x00000020) { %>
+                          <a class="btn btn-success" href="https://discord.com/oauth2/authorize?client_id=<%=bot_id%>&permissions=8&scope=bot%20applications.commands&guild_id=<%= guild.id %>" target="_blank">Add the bot !</a>
+                        <% } else { %>
+                          <button class="btn btn-disabled">You can't add the bot.</button>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+                </div>    
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
         <footer class="app-footer">
           <ul class="list-inline">
             <li class="list-inline-item">
@@ -152,3 +146,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script> 
     <script src="../home/assets/javascript/theme.min.js"></script> 
 </html>
+
+
+
+
+

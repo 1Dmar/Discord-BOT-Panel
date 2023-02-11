@@ -27,19 +27,49 @@ router.get('/guilds', ensureAuthenticated, (req, res) =>{
     })
 })
 
-router.get('/guild/:id',ensureAuthenticated,(req,res) =>{ 
-    res.redirect(`/guild/${req.params.id}/manage`)
+router.get('/guild', ensureAuthenticated, (req,res) =>{ 
+    const guildid = req.query.guildid
+
+    if (!guildid) {
+        req.flash('error', "No guild id was provided !")
+        return res.redirect('/guilds')
+    }
+
+    const guild = discord.client.guilds.cache.get(guildid)
+
+    if (!guild) {
+        req.flash('error', "The guild id is incorrect !")
+        return res.redirect('/guilds')
+    }
+
+    res.render('home/guild', {
+        Permissions: Discord.Permissions,
+        profile:req.user,
+        client:discord.client,
+        dateformat:dateformat,
+        number:number,
+        theme:theme,
+        config:config,
+        id:guildid,
+        guild:guild,
+    })
 })
 
-router.get("/addbot/:id", ensureAuthenticated,(req,res) =>{ 
-    let id = req.params.id
+router.get("/addbot", ensureAuthenticated,(req,res) =>{ 
+    let id = req.query.id
+
+    if (!id) {
+        req.flash('error', "No id was provided !")
+        return res.redirect('/guilds')
+    }
+
     let u_guilds = req.user.guilds
     let bot_id = config.clientID
 
     u_guilds.forEach((guild) => {
         if (guild.id !== id) return
         res.render('home/addbot',{
-            Permissions: Discord.Permissions,
+            Permissions: PermissionsBitField,
             profile:req.user,
             client:discord.client,
             dateformat:dateformat,
