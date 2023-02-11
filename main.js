@@ -46,6 +46,7 @@ app.use(function(req, res, next) {
 // Init routes
 app.use('/', require('./routes/home.js'));
 app.use('/', require('./routes/guilds.js'));
+app.use('/', require('./routes/channels.js'));
 
 app.use('/login', require('./routes/login.js'));
 
