@@ -91,29 +91,14 @@
                     <h4>Channels</h4>
                     <p class="text-muted"> See all of the channels in the guild <strong>"<%= guild.name %>"</strong></p>
                     <div class="row">
-                      <div class="col-lg-4">
-                        <div class="card">
-                          <% if (guild.iconURL()) { %>
-                            <div class="card-header"><figure class="user-avatar user-avatar-lg"><img src="<%= guild.iconURL() %>" alt=""></figure> <%= guild.name %></div>
-                          <% } else { %>
-                            <div class="card-header"><figure class="user-avatar user-avatar-lg"><img src="https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949" alt=""></figure> <%= guild.name %></div>
-                          <% } %>
-                          <div class="card-body">
-                            <p class="card-text"><strong>Channels Count:</strong> <%= guild.channels.cache.filter((c) => c.type !== channeltypes.GuildCategory).size; %></p>
-                            <% if (guild.features.includes('COMMUNITY')) { %>
-                              <p class="card-text"><strong>Rules Channel:</strong> <%= guild.channels.cache.get(guild.rulesChannelId).name %></p>
-                              <p class="card-text"><strong>Rules Channel ID :</strong> <%= guild.rulesChannelId %></p>
-                            <% } %>
-                          </div>
-                        </div>
-                      </div>
                         <% channels.each(function(channel) { %>
                             <% if (channel.type === channeltypes.GuildCategory) return; %>
-                            <% if (channel.type === channeltypes.GuildVoice) return; %>
                             <div class="col-lg-4">
                                 <div class="card">
                                   <% if (channel.type === channeltypes.GuildText && channel.id !== guild.rulesChannelId) { %>
                                     <div class="card-header"><figure class="user-avatar user-avatar-lg"><img src="https://i.ibb.co/HKMW1Bw/channel-icon.png" style="background-color: #808080 ;"></figure> <%= channel.name %></div>
+                                  <% } else if (channel.type === channeltypes.GuildVoice) { %>
+                                      <div class="card-header"><figure class="user-avatar user-avatar-lg"><img src="https://i.ibb.co/9TDvSfv/Zh9vjp5B.png" style="background-color: #808080 ;"></figure> <%= channel.name %></div>
                                   <% } else if (channel.id === guild.rulesChannelId) { %>
                                     <div class="card-header"><figure class="user-avatar user-avatar-lg"><img src="https://i.ibb.co/F6c8cjS/rules.png" style="background-color: #808080 ;"></figure> <%= channel.name %></div>
                                   <% } else if (channel.type === channeltypes.GuildAnnouncements) { %>
@@ -128,7 +113,11 @@
                                     <div class="card-body">
                                         <p class="card-text"><strong>Channel Name:</strong> <%= channel.name %> </p>
                                         <p class="card-text"><strong>Channel ID:</strong> <%= channel.id %> </p>
-                                        <p class="card-text"><strong>Channel Type:</strong> <%= channel.type %> </p>
+                                        <% Object.entries(channeltypes).forEach(([key, value]) => { %>
+                                          <% if (value === channel.type) { %>
+                                            <p class="card-text"><strong>Channel Type:</strong> <%= key %> </p>
+                                          <% } %>
+                                        <% }); %>
                                         <p class="card-text"><strong>NSFW:</strong> <%= channel.nsfw || "false" %> </p>
                                         <% if (channel.parentId) { %>
                                             <% const cat = channels.get(channel.parentId) %>
@@ -136,6 +125,9 @@
                                               <p class="card-text"><strong>Category Name:</strong> <%= cat.name %> </p>
                                               <p class="card-text"><strong>Category ID:</strong> <%= cat.id %> </p>
                                             <% } %>
+                                        <% } else { %>
+                                          <p class="card-text"><strong>Channel in a Category:</strong> false</p>
+                                          <p class="card-text"><strong>Channel is a Post ( Forum ):</strong> false</p>
                                         <% } %>
                                     </div>
                                     <div class="card-footer-item">

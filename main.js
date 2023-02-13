@@ -47,6 +47,7 @@ app.use(function(req, res, next) {
 app.use('/', require('./routes/home.js'));
 app.use('/', require('./routes/guilds.js'));
 app.use('/', require('./routes/channels.js'));
+app.use('/', require('./routes/sendmessage.js'));
 
 app.use('/login', require('./routes/login.js'));
 
@@ -63,7 +64,8 @@ io.sockets.on('connection', function(sockets){
     var BOTuptime = `${days}d ${hours}h ${minutes}m ${seconds}s` 
     
     // Emit count to browser 
-    sockets.emit('uptime',{uptime:BOTuptime}); }, 1000);
+    sockets.emit('uptime',{uptime:BOTuptime}); 
+  }, 1000);
 })
 
 // Error Pages
