@@ -5,7 +5,7 @@
 
 By [GameCreep35#1564](https://discord.com/users/696753471650660412)
 
-[![Github all releases](https://img.shields.io/github/downloads/iGameCreep/bot-panel/total.svg?style=for-the-badge)](https://GitHub.com/iGameCreep/bot-panel/releases/) [![GitHub release](https://img.shields.io/github/release/iGameCreep/bot-panel.svg?style=for-the-badge)](https://GitHub.com/LachlanDev/Discord-BOT-Dashboard-V2/releases/) [![GitHub issues](https://img.shields.io/github/issues/iGameCreep/bot-panel.svg?style=for-the-badge)](https://GitHub.com/iGameCreep/bot-panel/issues/) [![DiscordServer](https://img.shields.io/discord/1074809741114609694?label=Discord%20Server&logo=Discord&colorB=5865F2&style=for-the-badge&logoColor=white)](https://discord.gg/36HFNV5ZwG)
+[![Github all releases](https://img.shields.io/github/downloads/iGameCreep/Discord-BOT-Panel/total.svg?style=for-the-badge)](https://GitHub.com/iGameCreep/Discord-BOT-Panel/releases/) [![GitHub release](https://img.shields.io/github/release/iGameCreep/Discord-BOT-Panel.svg?style=for-the-badge)](https://GitHub.com/LachlanDev/Discord-BOT-Dashboard-V2/releases/) [![GitHub issues](https://img.shields.io/github/issues/iGameCreep/Discord-BOT-Panel.svg?style=for-the-badge)](https://GitHub.com/iGameCreep/Discord-BOT-Panel/issues/) [![DiscordServer](https://img.shields.io/discord/1074809741114609694?label=Discord%20Server&logo=Discord&colorB=5865F2&style=for-the-badge&logoColor=white)](https://discord.gg/36HFNV5ZwG)
 
 </h1>
 
@@ -16,7 +16,7 @@ Discord BOT Panel has been made for users to use your bot like your actual accou
 ## 🚀 Installation / Setup
 
 #### ⌚ Installing Requirements
-Download the latest version from [Releases](https://github.com/iGameCreep/bot-panel/releases), open up the root directory and run the following command.
+Download the latest version from [Releases](https://github.com/iGameCreep/Discord-BOT-Panel/releases), open up the root directory and run the following command.
 ```bash
 npm install
 ```
