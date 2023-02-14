@@ -18,7 +18,7 @@ router.get('/home', ensureAuthenticated,(req, res) => {
   var theme = config.theme
     var options = {
         method: 'GET',
-        url: `https://raw.githubusercontent.com/iGameCreep/bot-panel/main/version.json`,
+        url: `https://raw.githubusercontent.com/iGameCreep/Discord-BOT-Panel/main/version.json`,
         headers: {
           'User-Agent': 'Discord-Bot-Panel',
           useQueryString: true
