@@ -150,9 +150,11 @@
                         <% } %>
                       </div>
                       <div class="card-footer-item">
-                        <a type="button" class="btn btn-primary" href="/channel?guildid=<%= guild.id %>&channelid=<%= channel.id %>&action=view"> View Latest Messages</a>
-                        <a type="button" class="btn btn-primary" href="/channel?guildid=<%= guild.id %>&channelid=<%= channel.id %>&action=send"> Send a Message</a>
-                        <button class="btn btn-warning" data-toggle="modal" data-target="#delete">Delete channel</button>
+                        <% if (channel.type === channeltypes.Guildtext || channel.type === channeltypes.GuildAnnouncements) { %>
+                          <a type="button" class="btn btn-primary" href="/channel?guildid=<%= guild.id %>&channelid=<%= channel.id %>&action=view"> View Latest Messages</a>
+                          <a type="button" class="btn btn-primary" href="/channel?guildid=<%= guild.id %>&channelid=<%= channel.id %>&action=send" style="margin-left: 20px;"> Send a Message</a>
+                        <% } %>
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#delete" style="margin-left: 20px;">Delete channel</button>
                       </div>
                     </div>
                     <div class="modal modal-alert fade" id="delete" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
