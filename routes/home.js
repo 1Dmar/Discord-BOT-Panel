@@ -18,9 +18,9 @@ router.get('/home', ensureAuthenticated,(req, res) => {
   var theme = config.theme
     var options = {
         method: 'GET',
-        url: `https://raw.githubusercontent.com/LachlanDev/Discord-BOT-Dashboard-V2/main/src/config/version.json`,
+        url: `https://raw.githubusercontent.com/iGameCreep/bot-panel/main/version.json`,
         headers: {
-          'User-Agent': 'Discord-Bot-Dashboard',
+          'User-Agent': 'Discord-Bot-Panel',
           useQueryString: true
         }
       }
@@ -28,22 +28,22 @@ router.get('/home', ensureAuthenticated,(req, res) => {
       request(options, function (error, response, body) {
         try 
         {
-          jsonprased = JSON.parse(body)
-          verL = jsonprased.ver
+          jsonparsed = JSON.parse(body)
+          var verL = jsonparsed.ver
         } 
-        catch (e) 
-        {
-          console.log("Failed to check for updates you may continue using this version, please try again or contact LachlanDev#8014")
-          verL = ver.ver
+        catch (e) {
+          console.log("Failed to check for updates you may continue using this version, please try again or contact GameCreep35#1564")
+          var verL = ver
         }
-    res.render('home/home',{
+    
+        res.render('home/home',{
         profile:req.user,
         client:discord.client,
         joinedDate:dateformat(`${discord.client.user.createdAt}`, 'dddd, mmmm dS, yyyy, h:MM TT'),
         prefix:config.prefix,
         number:number,
-        Latestversion:verL,
-        Currentversion:ver.ver,
+        Latestversion: verL,
+        Currentversion: ver,
         theme:theme,
         config: config
     })
