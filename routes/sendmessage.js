@@ -38,7 +38,15 @@ router.post('/sendmessage', ensureAuthenticated, (req, res) => {
         return res.redirect(`/guild?guildid=${guildid}&channelid=${channelid}&action=send`)
     }
     
-    console.log(req.body)
+    try {
+        channel.send({ content: message })
+    } catch(err) {
+        req.flash('error', `An error occured while sending the message. Error: \n ${err}`)
+        return res.redirect(`/channel?guildid=${guildid}&channelid=${channelid}`)
+    }
+
+    req.flash('success', "Successfully sent the message !")
+    return res.redirect(`/channel?guildid=${guildid}&channelid=${channelid}`)
 })
 
 module.exports = router;
