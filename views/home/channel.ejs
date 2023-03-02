@@ -150,7 +150,7 @@
                         <% } %>
                       </div>
                       <div class="card-footer-item">
-                        <% if (channel.type === channeltypes.Guildtext || channel.type === channeltypes.GuildAnnouncements) { %>
+                        <% if (channel.type === channeltypes.GuildText || channel.type === channeltypes.GuildAnnouncements) { %>
                           <a type="button" class="btn btn-primary" href="/channel?guildid=<%= guild.id %>&channelid=<%= channel.id %>&action=view"> View Latest Messages</a>
                           <a type="button" class="btn btn-primary" href="/channel?guildid=<%= guild.id %>&channelid=<%= channel.id %>&action=send" style="margin-left: 20px;"> Send a Message</a>
                         <% } %>

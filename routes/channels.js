@@ -102,7 +102,8 @@ router.get('/channel', ensureAuthenticated, (req,res) =>{
             theme:theme,
             config:config,
             guild:guild,
-            channel: channel
+            channel: channel,
+            channeltypes: channeltypes
         })
     }
 
