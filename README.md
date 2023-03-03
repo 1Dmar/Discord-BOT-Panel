@@ -1,6 +1,6 @@
 <h1 align="center">
     <br>
-    <p>Discord BOT Dashboard - V2</p>
+    <p>Discord BOT Panel - V1</p>
 
 
 By [GameCreep35#1564](https://discord.com/users/696753471650660412)
@@ -22,18 +22,18 @@ npm install
 ```
 
 #### 🖥️ Setting up BOT
-Rename ``config.default.js`` to ``config.js`` and open up the file, then input the required fields. 
-```js
-module.exports = {
-    token: "",
-    clientID: "",
-    secret: "",
-    admins: ["696753471650660412"],
-    port: "3000",
-    session: "",
-    theme: "default.css",
-    ver: "1",
-    callbackURL: "http://localhost:3000/login/api"
+Rename ``config.default.json`` to ``config.json`` and open up the file, then input the required fields. 
+```json
+{
+    "token": "",
+    "clientID": "",
+    "secret": "",
+    "admins": [""],
+    "port": "3000",
+    "session": "",
+    "theme": "default.css",
+    "ver": "1",
+    "callbackURL": "http://localhost:3000/login/api"
 }
 ```
 
@@ -55,16 +55,16 @@ module.exports = {
 
 **Ver** : The version of the Panel. Right now, it's on v1, so don't change it.
 
-**Callback URL** : The callback URL. Should be *http://DOMAIN:PORT/login/api*
+**Callback URL** : The callback URL. Should be ``http://DOMAIN:PORT/login/api``
 
-Make sure to enable both "Privileged Gateway Intents" and to add as a **Redirect** the Callback URL ( replace DOMAIN with your domain / IP and PORT with the port you're running on. If you didn't edited domain and port in config, enter *"http://localhost:3000/login/api"* ) on the [**Discord Developer Portal**](https://discord.com/developers).
+Make sure to enable both "Privileged Gateway Intents" and to add as a **Redirect** the Callback URL ( replace DOMAIN with your domain / IP and PORT with the port you're running on. If you didn't edited domain and port in config, enter ``http://localhost:3000/login/api`` ) on the [**Discord Developer Portal**](https://discord.com/developers).
 
 #### 📡 Starting the application 
 Open up the root directory and run the following command.
 ```bash
 node main.js
 ```
-You should now be able to access the dashboard at **http://localhost:3000** or on **http://DOMAIN:PORT** ( replacing DOMAIN with your domain / IP and PORT with the port the one in the config ).
+You should now be able to access the dashboard at ``http://localhost:3000`` or on ``http://DOMAIN:PORT`` ( replacing DOMAIN with your domain / IP and PORT with the one in the config ).
 
 ## 🧰 Features
 A list of some of the features that are included in Discord BOT Panel
@@ -81,12 +81,12 @@ If you would like to contribute to the project please open a PR (Pull Request) c
 * [Node.JS](https://nodejs.org/en/) (v12.3.1 or later)
 
 ## 📞 Issues
-If you have any issues feel free to open an issue or join the [Discord Server.](https://discord.com/invite/36HFNV5ZwG)
+If you have any issues feel free to open an issue or join the [Discord Server](https://discord.com/invite/36HFNV5ZwG).
 
 ## 🧲 Extra
 __Created by GameCreep35#1564__
 * [Discord Server](https://discord.com/invite/36HFNV5ZwG)
 * This file is just the README.md of [LachlanDev's Discord-BOT-Dashboard V2](https://github.com/LachlanDev/Discord-BOT-Dashboard-V2/blob/main/README.md) edited.
-* The copyright on the footer of each pages isn't removed yet, i'll remove it soon.
+* The copyright on the footer of each pages has been edited.
 * Credits to [**LachlanDev#8094**](https://discord.com/invite/w7B5nKB) for the theme and the main files I took for this project.
 </br>
