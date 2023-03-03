@@ -30,10 +30,10 @@ module.exports = {
     secret: "",
     admins: ["696753471650660412"],
     port: "3000",
-    domain: "http://localhost",
     session: "",
     theme: "default.css",
-    ver: "1"
+    ver: "1",
+    callbackURL: "http://localhost:3000/login/api"
 }
 ```
 
@@ -55,7 +55,9 @@ module.exports = {
 
 **Ver** : The version of the Panel. Right now, it's on v1, so don't change it.
 
-Make sure to enable both "Privileged Gateway Intents" and to add as a **Redirect** *"http://DOMAIN:PORT/login/api"* ( replace DOMAIN with your domain / IP and PORT with the port you're running on. If you didn't edited domain and port in config, enter *"http://localhost:3000/login/api"* ) on the [**Discord Developer Dashboard**](https://discord.com/developers).
+**Callback URL** : The callback URL. Should be *http://DOMAIN:PORT/login/api*
+
+Make sure to enable both "Privileged Gateway Intents" and to add as a **Redirect** the Callback URL ( replace DOMAIN with your domain / IP and PORT with the port you're running on. If you didn't edited domain and port in config, enter *"http://localhost:3000/login/api"* ) on the [**Discord Developer Portal**](https://discord.com/developers).
 
 #### 📡 Starting the application 
 Open up the root directory and run the following command.

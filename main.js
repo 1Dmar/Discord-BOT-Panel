@@ -4,7 +4,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 const fileUpload = require('express-fileupload');
-const config = require('./config')
+const config = require('./config.json')
 
 const app = express();
 const http = require('http').Server(app);
@@ -48,6 +48,7 @@ app.use('/', require('./routes/home.js'));
 app.use('/', require('./routes/guilds.js'));
 app.use('/', require('./routes/channels.js'));
 app.use('/', require('./routes/sendmessage.js'));
+app.use('/', require('./routes/settings.js'));
 
 app.use('/login', require('./routes/login.js'));
 
