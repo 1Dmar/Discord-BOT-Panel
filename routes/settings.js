@@ -30,7 +30,7 @@ router.post('/settings/config', ensureAuthenticated, (req,res) => {
   json.update('./config.json',{
 
     clientID: `${req.body.clientID}`,
-    secret: `${req.body.clientSecret}`,
+    secret: `${req.body.secret}`,
     callbackURL: `${req.body.callbackURL}`,
     admins: req.body.admins.split(','),
     token: `${req.body.token}`,
