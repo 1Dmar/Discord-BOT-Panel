@@ -1,0 +1,11 @@
+{
+    "token": "",
+    "clientID": "",
+    "secret": "",
+    "admins": [""],
+    "port": "3000",
+    "session": "",
+    "theme": "",
+    "ver": "1",
+    "callbackURL": "http://localhost:3000/login/api"
+}
